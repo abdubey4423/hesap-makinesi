@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hesap Makinesi</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input {
+            width: 60px;
+            font-size: 20px;
+        }
+        button {
+            font-size: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧮 Basit Hesap Makinesi</h1>
+    <input id="sayi1" type="number" placeholder="Sayı 1">
+    <input id="sayi2" type="number" placeholder="Sayı 2"><br><br>
+
+    <button onclick="hesapla('+')">+</button>
+    <button onclick="hesapla('-')">-</button>
+    <button onclick="hesapla('*')">*</button>
+    <button onclick="hesapla('/')">/</button>
+
+    <h2 id="sonuc">Sonuç: </h2>
+
+    <script>
+        function hesapla(islem) {
+            let s1 = parseFloat(document.getElementById("sayi1").value);
+            let s2 = parseFloat(document.getElementById("sayi2").value);
+            let sonuc = 0;
+
+            if (islem === '+') sonuc = s1 + s2;
+            else if (islem === '-') sonuc = s1 - s2;
+            else if (islem === '*') sonuc = s1 * s2;
+            else if (islem === '/') sonuc = s2 !== 0 ? s1 / s2 : "Hata: 0'a bölünemez!";
+
+            document.getElementById("sonuc").innerText = "Sonuç: " + sonuc;
+        }
+    </script>
+</body>
+</html>
